@@ -248,9 +248,8 @@ flowchart TD
         HOOKS["fa:fa-paper-plane &nbsp;/webhooks/&nbsp;<br/><b>Event Dispatch</b><br/>Merchant Webhooks"]
     end
 
-    INTAKE ==> CORE
-    TXN --> LEDGER
-    TXN --> HOOKS
+    TXN ==>|"Guaranteed balance debit"| LEDGER
+    TXN -->|"Async payment event"| HOOKS
 
     classDef ft fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#f8fafc;
     class AUTH,LEDGER,TXN,HOOKS ft;
