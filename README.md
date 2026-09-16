@@ -9,6 +9,45 @@ An open-source repository of in-depth software architecture and system design se
 
 ---
 
+## 🗺️ System Design Curriculum Map
+
+How the topics in this repository connect as systems scale from a single repository to distributed enterprise platforms:
+
+```mermaid
+flowchart TD
+    subgraph S1["Topic 01: Codebase Boundaries (Current)"]
+        T1["📁 01-filestructure<br/><i>Conway's Law, Module Boundaries & Blast Radius</i>"]
+    end
+
+    subgraph S2["Topic 02: Read Scalability (Planned)"]
+        T2["⚡ 02-caching<br/><i>Distributed Caching, Invalidation & Cache Stampedes</i>"]
+    end
+
+    subgraph S3["Topic 03: Data Layer Scale (Planned)"]
+        T3["💾 03-database-sharding<br/><i>Partitioning, Replication Lag & Distributed Transactions</i>"]
+    end
+
+    subgraph S4["Topic 04: Asynchronous Decoupling (Planned)"]
+        T4["📨 04-event-driven<br/><i>Message Brokers, Outbox Pattern & Idempotency</i>"]
+    end
+
+    subgraph S5["Topic 05: Organizational Topology (Planned)"]
+        T5["🏛️ 05-microservices-vs-monoliths<br/><i>Modular Monoliths, SOA & The Distributed Inflection Point</i>"]
+    end
+
+    T1 ==>|"Code grows across services"| T2
+    T2 ==>|"Data volume outgrows single node"| T3
+    T3 ==>|"Decoupling write workflows"| T4
+    T4 ==>|"Macro architecture & team scale"| T5
+
+    classDef active fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
+    classDef planned fill:#1e293b,stroke:#64748b,stroke-width:2px,color:#94a3b8;
+    class T1 active;
+    class T2,T3,T4,T5 planned;
+```
+
+---
+
 ## 🧭 Repository Architecture: Clean Domain Separation
 
 To keep distinct System Design subjects modular and prevent cross-topic coupling, every topic lives in its own dedicated, self-contained root folder:
@@ -20,7 +59,7 @@ Mediumblogs/
 ├── .gitignore
 │
 ├── 01-filestructure/                          # 📁 Topic 01: File Structure & Codebase Architecture
-│   ├── README.md                              # Topic roadmap & overview
+│   ├── README.md                              # Topic roadmap, visuals & overview
 │   └── articles/                              # 📖 Publication-ready Markdown essays
 │       ├── README.md
 │       └── 01-your-folder-structure-is-a-message.md
@@ -47,7 +86,7 @@ Mediumblogs/
 ## 🚀 Quick Navigation for Topic 01 (File Structure)
 
 - **Read Part 1 on GitHub**: [01-your-folder-structure-is-a-message.md](01-filestructure/articles/01-your-folder-structure-is-a-message.md)
-- **Topic 01 Overview & Roadmap**: [01-filestructure/README.md](01-filestructure/README.md)
+- **Topic 01 Overview & Diagrams**: [01-filestructure/README.md](01-filestructure/README.md)
 
 ---
 
