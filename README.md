@@ -2,10 +2,10 @@
 ### *Deep-Dive, Research-Backed Engineering Series for Production Practitioners*
 
 [![Status: Active](https://img.shields.io/badge/Status-Active%20%7C%20Topic%2001%20Ready-success.svg)](#-system-design-topics-index)
-[![Audience: Senior Engineers](https://img.shields.io/badge/Audience-Senior%20Engineers%20(2--5%20yrs)-orange.svg)](#-about-this-repository)
+[![Audience: 0–5+ yrs](https://img.shields.io/badge/Audience-0--5%2B%20yrs%20%7C%20Beginner%20to%20Senior-orange.svg)](#-about-this-repository)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-An open-source repository of in-depth software architecture and system design series. Each topic is structured as a self-contained, publication-ready collection of essays written for software engineers with **2 to 5 years of production experience**.
+An open-source repository of in-depth software architecture and system design series. Each topic is structured as a self-contained, publication-ready collection of essays written for software engineers across all experience levels—from **beginners building their first production systems to senior engineers and tech leads untangling complex architectures (0–5+ years)**.
 
 ---
 

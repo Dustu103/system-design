@@ -126,11 +126,11 @@ The non-author on-call engineer gets paged. At two o'clock in the morning, an en
 
 ## What This Series Is and Who It's For
 
-This series is written specifically for software engineers with two to five years of production experience.
+This series is written for software engineers with zero to five-plus years of production experience—covering practitioners from early-career developers building their first systems all the way to senior engineers and tech leads untangling legacy codebases.
 
-It assumes you have already mastered the mechanics of writing clean syntax. You understand functions, classes, automated testing, and continuous integration. You have shipped software that users rely on, you have inherited code written by people who are no longer around to answer questions, and you have experienced the quiet dread of pushing a change to one file only to discover that it inexplicably broke a feature three directories away.
+If you are early in your career, this series provides the foundational mental models to navigate large production codebases without fear and avoid building unmaintainable architectures from sprint one. If you are a senior engineer or tech lead, it provides the precise vocabulary and organizational levers needed to diagnose architectural decay, conduct fearless structural audits, and communicate design trade-offs across your team. You have shipped software that users rely on, inherited systems you did not build, and experienced the quiet dread of pushing a change to one file only to discover that it inexplicably broke a feature three directories away.
 
-This series is for engineers who have sat in pull request reviews looking at a proposed change, sensing deep in their gut that something about the design is dangerous, yet struggling to articulate why because our industry rarely teaches a shared vocabulary for structural failure.
+This series is for anyone who has sat in a pull request review looking at a proposed change, sensing deep in their gut that something about the design is dangerous, yet struggling to articulate why because our industry rarely teaches a shared vocabulary for structural failure.
 
 To keep these architectural concepts grounded in reality rather than abstract theory, this series introduces a single running example codebase: a production backend for a mid-sized fintech platform. The system handles customer authentication, merchant transactions, double-entry ledger bookkeeping, and third-party webhook dispatches. It is sufficiently complex to expose authentic structural dilemmas, yet compact enough to analyze thoroughly within an article.
 
