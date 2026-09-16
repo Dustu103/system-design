@@ -2,9 +2,9 @@
 ### *The Architecture of Intent — Where You Put Things Is the Architecture*
 
 [![Status: Active](https://img.shields.io/badge/Status-Part%201%20Ready-success.svg)](#-articles-roadmap)
-[![Audience: 0–5+ yrs](https://img.shields.io/badge/Audience-0--5%2B%20yrs%20%7C%20Beginner%20to%20Senior-orange.svg)](#-about-this-topic)
+[![Audience: Beginner to 15+ Yrs](https://img.shields.io/badge/Audience-Beginner%20to%2015%2B%20Yrs%20Experience-orange.svg)](#-about-this-topic)
 
-This topic explores the physical organization of production codebases across every experience level—from foundational folder hygiene for beginners to advanced Conway's Law and organizational topology for senior engineers and tech leads. It analyzes why folder layouts create default communication patterns, how technical debt accumulates silently in unowned directories, and how to define crisp module boundaries before external forcing functions break your system.
+This topic explores the physical organization of production codebases across every experience level—from beginners building their first production service to staff architects and tech leads with 10+ and 15+ years of experience leading enterprise systems. It analyzes why folder layouts create default communication patterns, how technical debt accumulates silently in unowned directories, and how to define crisp module boundaries before external forcing functions break your system.
 
 ---
 

@@ -2,7 +2,7 @@
 
 This directory contains the publication-ready essays for the series **The Architecture of Intent** (*Where You Put Things Is the Architecture*).
 
-Each article is written as a deep-dive essay targeted at engineers with 0–5+ years of production experience, focusing on real-world structural failure modes, organizational dynamics, and practical architecture patterns. We cover beginner to very senior levels.
+Each article is written as a deep-dive essay for engineers at every stage of their career—whether you are a beginner building your first production service, an engineer navigating growing systems, or a staff architect with 10+ or 15+ years of experience leading enterprise transformations. We focus on real-world structural failure modes, organizational dynamics, and practical architecture patterns.
 
 ---
 
