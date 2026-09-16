@@ -1,93 +1,73 @@
-# 🏛️ The Architecture of Intent
-### *Where You Put Things Is the Architecture*
+# 🏛️ System Design & Software Architecture Chronicles
+### *Deep-Dive, Research-Backed Engineering Series for Production Practitioners*
 
-[![Status: Active](https://img.shields.io/badge/Status-Active%20%7C%20Part%201%20Ready-success.svg)](#series-roadmap)
-[![Format: Markdown & HTML](https://img.shields.io/badge/Format-Markdown%20%7C%20HTML-blue.svg)](#repository-structure)
-[![Audience: Senior Engineers](https://img.shields.io/badge/Audience-Senior%20Engineers%20(2--5%20yrs)-orange.svg)](#target-audience)
+[![Status: Active](https://img.shields.io/badge/Status-Active%20%7C%20Topic%2001%20Ready-success.svg)](#-system-design-topics-index)
+[![Audience: Senior Engineers](https://img.shields.io/badge/Audience-Senior%20Engineers%20(2--5%20yrs)-orange.svg)](#-about-this-repository)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-An open-source, publication-grade series on software architecture written for engineers who already know how to write good code — and are starting to wonder why their systems keep getting harder to change.
+An open-source repository of in-depth software architecture and system design series. Each topic is structured as a self-contained, publication-ready collection of essays, empirical research, and case studies written for engineers with **2 to 5 years of production experience**.
 
 ---
 
-## 🎯 Target Audience
+## 🧭 Repository Architecture: Clean Domain Separation
 
-This series is written specifically for software engineers with **2 to 5 years of production experience**.
-
-It assumes you have already mastered writing clean syntax, testing, and shipping features. You have inherited legacy code you didn't write, broken something three folders away that you didn't know was connected, and spent time in pull request reviews thinking *"this feels wrong, but I can't say exactly why"* — because the industry rarely provides a shared vocabulary for structural failure modes.
-
----
-
-## 🧭 Repository Structure
-
-> *"Your folder structure is a message. Most teams are sending the wrong one."*
-
-Practicing what we preach, this repository is organized into distinct, self-documenting modules:
+To keep distinct System Design subjects modular and prevent cross-topic coupling, every topic lives in its own dedicated, self-contained root folder:
 
 ```text
 Mediumblogs/
-├── README.md                                  # Repository overview and series roadmap
-├── articles/                                  # Publication-ready Markdown essays for GitHub readers
-│   ├── README.md                              # Articles index and reading order
-│   └── 01-your-folder-structure-is-a-message.md # Part 1: Full publication draft
-├── research/                                  # Research vault: empirical data, blueprints, case studies
-│   ├── README.md                              # Research overview and methodology
-│   └── 01-folder-structure-research.md        # Comprehensive research file for Part 1
-└── medium-export/                             # Browser-ready HTML for 1-click import into Medium
-    └── 01-your-folder-structure-is-a-message.html
+├── README.md                                  # Master index across all System Design topics
+├── LICENSE                                    # MIT License
+├── .gitignore
+│
+├── 01-filestructure/                          # 📁 Topic 01: File Structure & Codebase Architecture
+│   ├── README.md                              # Topic roadmap & overview
+│   ├── articles/                              # 📖 Publication-ready Markdown essays
+│   │   ├── README.md
+│   │   └── 01-your-folder-structure-is-a-message.md
+│   ├── research/                              # 🔬 Empirical data, postmortems & blueprints
+│   │   ├── README.md
+│   │   └── 01-folder-structure-research.md
+│   └── medium-export/                         # 🌐 1-Click HTML exports for Medium
+│       └── 01-your-folder-structure-is-a-message.html
+│
+├── 02-caching/                                # ⚡ Topic 02: Distributed Caching (Planned)
+├── 03-database-sharding/                      # 💾 Topic 03: Partitioning & Scaling (Planned)
+└── 04-event-driven/                           # 📨 Topic 04: Event-Driven Systems (Planned)
 ```
 
 ---
 
-## 📚 Series Roadmap
+## 📚 System Design Topics Index
 
-| Part | Essay Title | Status | GitHub Markdown | Medium Ready |
-| :---: | :--- | :---: | :---: | :---: |
-| **01** | **Your Folder Structure Is a Message. Most Teams Are Sending the Wrong One.** | ✅ Published | [Read Part 1](articles/01-your-folder-structure-is-a-message.md) | [HTML Export](medium-export/01-your-folder-structure-is-a-message.html) |
-| **02** | **The First Cut: How Module Boundaries Get Drawn and Why They Drift** | ⏳ Planned | Coming soon | Coming soon |
-| **03** | **The Blast Radius Audit: Diagnosing Coupling Before It Causes an Outage** | ⏳ Planned | Coming soon | Coming soon |
-| **04** | **Decisions That Age Well: Writing ADRs Your Team Will Actually Follow** | ⏳ Planned | Coming soon | Coming soon |
-| **05** | **Architecture Without Authority: Leading Structural Alignment as a Senior Engineer** | ⏳ Planned | Coming soon | Coming soon |
-
----
-
-## 🚀 How to Read & Publish
-
-### Option 1: Read Directly on GitHub
-Navigate to the [`articles/`](articles/) folder and click on any essay (e.g. [`01-your-folder-structure-is-a-message.md`](articles/01-your-folder-structure-is-a-message.md)). All citations, blockquotes, and cross-references render natively.
-
-### Option 2: Publish to Medium (10-Second Workflow)
-1. Open the file in [`medium-export/`](medium-export/) (e.g. [`01-your-folder-structure-is-a-message.html`](medium-export/01-your-folder-structure-is-a-message.html)) in any web browser (Chrome, Edge, Safari).
-2. Press **`Ctrl + A`** (or `Cmd + A`) to select all, then **`Ctrl + C`** (or `Cmd + C`) to copy.
-3. Open Medium's story editor and press **`Ctrl + V`** (or `Cmd + V`).
-4. All Medium headings (H1/H2), inline hyperlinks, blockquotes, and horizontal dividers will paste natively with zero formatting loss.
+| Topic # | Topic / Series Name | Description | Status | Direct Link |
+| :---: | :--- | :--- | :---: | :---: |
+| **01** | **File Structure & Codebase Architecture** | Conway's Law, directory decay, forcing functions, and defining module boundaries before external shocks break your system. | ✅ Active (Part 1 Ready) | [Explore Topic 01](01-filestructure/) |
+| **02** | **Distributed Caching & Cache Invalidation** | Cache-aside, write-through, stampede mitigation, consistent hashing, and distributed cache coherence under high QPS. | ⏳ Planned | *Coming soon* |
+| **03** | **Database Partitioning & High Availability** | Horizontal sharding, read replicas, replication lag, distributed transactions, and split-brain resolution. | ⏳ Planned | *Coming soon* |
+| **04** | **Event-Driven Architecture & Messaging** | Message brokers, idempotency, outbox pattern, dead-letter queues, and exactly-once processing semantics. | ⏳ Planned | *Coming soon* |
+| **05** | **Modular Monoliths vs. Microservices** | The inflection point where distributed complexity pays for itself, and how to decouple without network latency. | ⏳ Planned | *Coming soon* |
 
 ---
 
-## 🔬 Grounded in Primary Research
+## 🚀 Quick Navigation for Topic 01 (File Structure)
 
-Every essay in this series avoids armchair opinions. Arguments are anchored in verified incident postmortems, academic research, and industry telemetry:
-
-- **Conway's Law & The Inverse Conway Maneuver**: Melvin Conway's 1967 paper, verified empirically by [MIT and Harvard Business School](https://www.hbs.edu/ris/Publication%20Files/08-039_1861e507-1dc1-4602-85b8-90d71559d85b.pdf).
-- **The $460M Zombie Code Disaster**: Knight Capital's 2012 catastrophe caused by dead code in an ambiguous folder ([SEC Administrative Proceeding](https://www.sec.gov/litigation/admin/2013/34-70694.pdf)).
-- **The GitLab 300GB Deletion Incident**: Operational failure driven by indistinguishable directory environments ([GitLab 2017 Postmortem](https://about.gitlab.com/blog/2017/02/01/gitlab-dot-com-database-incident/)).
-- **Apple Siri's 13-Year Structural Debt**: The architectural constraints that led to a $1B/year Gemini licensing agreement and leadership restructuring.
-- **Twitter 2010 World Cup Outages**: The Fail Whale forcing function documented by eyewitness on-call engineers and Twitter's official engineering retrospectives.
-- **The Amazon 2002 Bezos API Mandate**: How CEO-mandated interface boundaries eliminated coordination bottlenecks and inadvertently produced AWS.
-- **Global Technical Debt**: [CAST Software's analysis](https://www.castsoftware.com/research-labs/technical-debt-estimation) of 10B+ lines of code across 47,000 applications.
+- **Read Part 1 on GitHub**: [01-your-folder-structure-is-a-message.md](01-filestructure/articles/01-your-folder-structure-is-a-message.md)
+- **Deep-Dive Research Vault**: [01-folder-structure-research.md](01-filestructure/research/01-folder-structure-research.md)
+- **Medium 1-Click Copy Export**: [01-your-folder-structure-is-a-message.html](01-filestructure/medium-export/01-your-folder-structure-is-a-message.html)
+- **Topic 01 Roadmap**: [01-filestructure/README.md](01-filestructure/README.md)
 
 ---
 
-## 💡 Running Example: The Fintech Engine
+## 📖 Publishing Workflow for Authors
 
-Starting in **Part 2**, all architectural concepts are tested against a single concrete open-source case study: a **production fintech backend service**. 
-- Handles customer onboarding & authentication
-- Double-entry ledger transactions
-- Merchant payouts and third-party webhook dispatchers
-- Demonstrates realistic domain boundaries, blast-radius containment, and refactoring techniques under pressure.
+Each topic includes its own `medium-export/` directory:
+1. Open the `.html` export for the article in your web browser.
+2. Press **`Ctrl + A`** (`Cmd + A`) followed by **`Ctrl + C`** (`Cmd + C`).
+3. Paste (**`Ctrl + V`**) directly into Medium's story editor.
+4. All formatting (H1/H2, blockquotes, horizontal rules, and hyperlinks) transfers natively with zero manual reformatting.
 
 ---
 
 ## 📄 License
 
-This work is licensed under the [MIT License](LICENSE). You are free to read, share, and adapt with attribution.
+This repository is licensed under the [MIT License](LICENSE).
