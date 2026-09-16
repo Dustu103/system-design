@@ -5,7 +5,7 @@
 [![Audience: Senior Engineers](https://img.shields.io/badge/Audience-Senior%20Engineers%20(2--5%20yrs)-orange.svg)](#-about-this-repository)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-An open-source repository of in-depth software architecture and system design series. Each topic is structured as a self-contained, publication-ready collection of essays, empirical research, and case studies written for engineers with **2 to 5 years of production experience**.
+An open-source repository of in-depth software architecture and system design series. Each topic is structured as a self-contained, publication-ready collection of essays written for software engineers with **2 to 5 years of production experience**.
 
 ---
 
@@ -21,14 +21,9 @@ Mediumblogs/
 │
 ├── 01-filestructure/                          # 📁 Topic 01: File Structure & Codebase Architecture
 │   ├── README.md                              # Topic roadmap & overview
-│   ├── articles/                              # 📖 Publication-ready Markdown essays
-│   │   ├── README.md
-│   │   └── 01-your-folder-structure-is-a-message.md
-│   ├── research/                              # 🔬 Empirical data, postmortems & blueprints
-│   │   ├── README.md
-│   │   └── 01-folder-structure-research.md
-│   └── medium-export/                         # 🌐 1-Click HTML exports for Medium
-│       └── 01-your-folder-structure-is-a-message.html
+│   └── articles/                              # 📖 Publication-ready Markdown essays
+│       ├── README.md
+│       └── 01-your-folder-structure-is-a-message.md
 │
 ├── 02-caching/                                # ⚡ Topic 02: Distributed Caching (Planned)
 ├── 03-database-sharding/                      # 💾 Topic 03: Partitioning & Scaling (Planned)
@@ -52,19 +47,7 @@ Mediumblogs/
 ## 🚀 Quick Navigation for Topic 01 (File Structure)
 
 - **Read Part 1 on GitHub**: [01-your-folder-structure-is-a-message.md](01-filestructure/articles/01-your-folder-structure-is-a-message.md)
-- **Deep-Dive Research Vault**: [01-folder-structure-research.md](01-filestructure/research/01-folder-structure-research.md)
-- **Medium 1-Click Copy Export**: [01-your-folder-structure-is-a-message.html](01-filestructure/medium-export/01-your-folder-structure-is-a-message.html)
-- **Topic 01 Roadmap**: [01-filestructure/README.md](01-filestructure/README.md)
-
----
-
-## 📖 Publishing Workflow for Authors
-
-Each topic includes its own `medium-export/` directory:
-1. Open the `.html` export for the article in your web browser.
-2. Press **`Ctrl + A`** (`Cmd + A`) followed by **`Ctrl + C`** (`Cmd + C`).
-3. Paste (**`Ctrl + V`**) directly into Medium's story editor.
-4. All formatting (H1/H2, blockquotes, horizontal rules, and hyperlinks) transfers natively with zero manual reformatting.
+- **Topic 01 Overview & Roadmap**: [01-filestructure/README.md](01-filestructure/README.md)
 
 ---
 

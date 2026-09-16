@@ -12,3 +12,12 @@ desktop.ini
 # Node / Package temporary files
 node_modules/
 npm-debug.log
+
+# Local Author Scratchpads & Research Vaults (Kept local, not pushed)
+**/research/
+research/
+
+# Medium & Browser Export Artifacts
+**/medium-export/
+medium-export/
+*.html
