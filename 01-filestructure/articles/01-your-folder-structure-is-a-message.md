@@ -20,17 +20,17 @@ Industry data shows that a senior engineer earning $180,000 annually requires ro
 
 ```mermaid
 flowchart TD
-    subgraph QUESTIONS["❓ The Three Questions Every New Hire Asks"]
+    subgraph QUESTIONS["The Three Questions Every New Hire Asks"]
         direction TB
-        Q1["1. 'Where does this type of thing live?'"]
-        Q2["2. 'Who owns this module?'"]
-        Q3["3. 'Why was this decision made?'"]
+        Q1["fa:fa-question-circle &nbsp;1. 'Where does this type of thing live?'&nbsp;"]
+        Q2["fa:fa-user-secret &nbsp;2. 'Who owns this module?'&nbsp;"]
+        Q3["fa:fa-history &nbsp;3. 'Why was this decision made?'&nbsp;"]
     end
 
-    subgraph OUTCOME["🏛️ Two Architectural Realities"]
+    subgraph OUTCOME["Two Architectural Realities"]
         direction TB
-        A1["✅ Self-Serve Codebase:<br/>Answered passively by clear directory boundaries"]
-        A2["❌ Structural Chaos:<br/>Answered in Slack 50x/week ($90,000 onboarding tax)"]
+        A1["fa:fa-check-circle &nbsp;Self-Serve Codebase:<br/>Answered passively by clear directory boundaries&nbsp;"]
+        A2["fa:fa-times-circle &nbsp;Structural Chaos:<br/>Answered in Slack 50x/week ($90,000 onboarding tax)&nbsp;"]
     end
 
     QUESTIONS ==>|"Architecture determines the answer"| OUTCOME
@@ -64,9 +64,9 @@ Structure creates defaults. Defaults become patterns. Patterns harden into load-
 
 ```mermaid
 flowchart TD
-    A["PR 1: 'I don't know where this helper goes'"] --> B["Compromise: Dump into /shared/utils/"]
-    B --> C["Month 6: 61 unrelated files accumulated"]
-    C --> D["The Blast Radius Trap: Imported by 40 services, unmaintained by all"]
+    A["fa:fa-code-fork &nbsp;PR 1: 'I don't know where this helper goes'&nbsp;"] --> B["fa:fa-folder-open &nbsp;Compromise: Dump into /shared/utils/&nbsp;"]
+    B --> C["fa:fa-archive &nbsp;Month 6: 61 unrelated files accumulated&nbsp;"]
+    C --> D["fa:fa-bomb &nbsp;The Blast Radius Trap: Imported by 40 services, unmaintained by all&nbsp;"]
 
     classDef step fill:#1e293b,stroke:#f59e0b,stroke-width:2px,color:#f8fafc;
     classDef alert fill:#450a0a,stroke:#ef4444,stroke-width:2px,color:#f8fafc;
@@ -92,17 +92,17 @@ If you instead reorganize those same engineers into cross-functional squads—ch
 
 ```mermaid
 flowchart TD
-    subgraph ORG["👥 Organizational Communication Graph"]
+    subgraph ORG["Organizational Communication Graph"]
         direction TB
-        F["Frontend Squad<br/><i>(Floor 2)</i>"] <--> B["Backend Squad<br/><i>(Floor 3)</i>"]
-        B <--> D["DBA / Data Squad<br/><i>(Separate Dept)</i>"]
+        F["fa:fa-users &nbsp;Frontend Squad&nbsp;<br/><i>(Floor 2)</i>"] <--> B["fa:fa-users &nbsp;Backend Squad&nbsp;<br/><i>(Floor 3)</i>"]
+        B <--> D["fa:fa-database &nbsp;DBA / Data Squad&nbsp;<br/><i>(Separate Dept)</i>"]
         F -.-|"Rarely communicates directly"| D
     end
 
-    subgraph CODE["💻 Inevitable Codebase Architecture"]
+    subgraph CODE["Inevitable Codebase Architecture"]
         direction TB
-        UI["📁 /frontend/<br/><i>(Presentation Layer)</i>"] --> API["📁 /api/<br/><i>(Application Layer)</i>"]
-        API --> DB["📁 /database/<br/><i>(Persistence Layer)</i>"]
+        UI["fa:fa-desktop &nbsp;/frontend/&nbsp;<br/><i>(Presentation Layer)</i>"] --> API["fa:fa-cogs &nbsp;/api/&nbsp;<br/><i>(Application Layer)</i>"]
+        API --> DB["fa:fa-database &nbsp;/database/&nbsp;<br/><i>(Persistence Layer)</i>"]
         UI -.-|"Coupling friction emerges here"| DB
     end
 
@@ -121,9 +121,9 @@ In 1967, Melvin Conway submitted [a paper to Harvard Business Review](http://www
 
 ```mermaid
 flowchart TD
-    A["🎯 1. Target Architecture<br/><b>Define decoupled domain boundaries</b>"] 
-    --> B["👥 2. Reshape Team Topology<br/><b>Small, autonomous two-pizza squads</b>"]
-    --> C["💻 3. Code Follows Boundaries<br/><b>Directories & APIs mirror team ownership</b>"]
+    A["fa:fa-bullseye &nbsp;1. Target Architecture&nbsp;<br/><b>Define decoupled domain boundaries</b>"] 
+    --> B["fa:fa-users &nbsp;2. Reshape Team Topology&nbsp;<br/><b>Small, autonomous two-pizza squads</b>"]
+    --> C["fa:fa-code &nbsp;3. Code Follows Boundaries&nbsp;<br/><b>Directories & APIs mirror team ownership</b>"]
 
     classDef step fill:#1e293b,stroke:#8b5cf6,stroke-width:2px,color:#f8fafc;
     class A,B,C step;
@@ -141,27 +141,27 @@ Structural decay rarely begins with negligence. It begins with local convenience
 
 ```mermaid
 flowchart TD
-    subgraph K["💥 1. Knight Capital (2012) — Acute Dead Code Disaster"]
+    subgraph K["1. Knight Capital (2012) — Acute Dead Code Disaster"]
         direction TB
-        K1["🧟 Root Cause: Zombie 'Power Peg' code left dormant for 9 years"]
-        K2["🚨 Trigger: 1 of 8 servers missed deploy; reused dormant flag"]
-        K3["💸 Impact: $460M lost in 45 minutes; 4M unintended orders; firm collapsed"]
+        K1["fa:fa-ban &nbsp;Root Cause: Zombie 'Power Peg' code dormant for 9 years&nbsp;"]
+        K2["fa:fa-exclamation-triangle &nbsp;Trigger: 1 of 8 servers missed deploy; reused dormant flag&nbsp;"]
+        K3["fa:fa-dollar &nbsp;Impact: $460M lost in 45 minutes; 4M unintended orders; firm collapsed&nbsp;"]
         K1 --> K2 --> K3
     end
 
-    subgraph G["💥 2. GitLab (2017) — Ambiguous Environment Guardrails"]
+    subgraph G["2. GitLab (2017) — Ambiguous Environment Guardrails"]
         direction TB
-        G1["🧟 Root Cause: Identical directory paths across primary & backup"]
-        G2["🚨 Trigger: Fatigued engineer ran wipe command in wrong terminal tab"]
-        G3["💸 Impact: 300 GB deleted; all 5 backup mechanisms failed live"]
+        G1["fa:fa-ban &nbsp;Root Cause: Identical directory paths across primary & backup&nbsp;"]
+        G2["fa:fa-exclamation-triangle &nbsp;Trigger: Fatigued engineer ran wipe command in wrong terminal tab&nbsp;"]
+        G3["fa:fa-dollar &nbsp;Impact: 300 GB deleted; all 5 backup mechanisms failed live&nbsp;"]
         G1 --> G2 --> G3
     end
 
-    subgraph S["💥 3. Apple Siri (2011–2024) — The 13-Year Slow Compound"]
+    subgraph S["3. Apple Siri (2011–2024) — The 13-Year Slow Compound"]
         direction TB
-        S1["🧟 Root Cause: 13 years of intent heuristics patched over rules"]
-        S2["🚨 Trigger: Fragile architectural debt blocked modern LLM integration"]
-        S3["💸 Impact: Core reliability fell <80%; $1B/yr paid to Google for Gemini"]
+        S1["fa:fa-ban &nbsp;Root Cause: 13 years of intent heuristics patched over rules&nbsp;"]
+        S2["fa:fa-exclamation-triangle &nbsp;Trigger: Fragile architectural debt blocked modern LLM integration&nbsp;"]
+        S3["fa:fa-dollar &nbsp;Impact: Core reliability fell <80%; $1B/yr paid to Google for Gemini&nbsp;"]
         S1 --> S2 --> S3
     end
 
@@ -188,10 +188,10 @@ Engineering teams almost never refactor because clean code is virtuous. They ref
 ```mermaid
 sequenceDiagram
     autonumber
-    participant Event as ⚡ External Shock
-    participant System as 🏚️ Fragile Architecture
-    participant Action as 🔨 Forcing Function
-    participant Future as 🚀 Resilient Architecture
+    participant Event as External Shock
+    participant System as Fragile System
+    participant Action as Forcing Function
+    participant Future as Resilient Architecture
 
     Note over Event,System: Case 1: Twitter (2010 FIFA World Cup)
     Event->>System: World Cup Goal (TPS Spike)
@@ -215,9 +215,9 @@ That memo forced the decoupling that accidentally built Amazon Web Services (AWS
 
 ```mermaid
 flowchart TD
-    T1["👥 1. The 2nd Team Joins<br/><b>Implicit mental models break when team expands past 5 engineers</b>"]
-    T2["📋 2. The Auditor Arrives<br/><b>SOC 2 / GDPR mandates customer data isolation from shared folders</b>"]
-    T3["🚨 3. The 2 AM On-Call Page<br/><b>An engineer who didn't write the code must triage an outage in minutes</b>"]
+    T1["fa:fa-users &nbsp;1. The 2nd Team Joins&nbsp;<br/><b>Implicit mental models break when team expands past 5 engineers</b>"]
+    T2["fa:fa-file-text &nbsp;2. The Auditor Arrives&nbsp;<br/><b>SOC 2 / GDPR mandates customer data isolation from shared folders</b>"]
+    T3["fa:fa-bell &nbsp;3. The 2 AM On-Call Page&nbsp;<br/><b>An engineer who didn't write the code must triage an outage in minutes</b>"]
 
     T1 --> T2 --> T3
 
@@ -237,15 +237,15 @@ Starting in Part 2, every architectural principle will be demonstrated against t
 flowchart TD
     subgraph INTAKE["Customer & Payment Flow"]
         direction LR
-        AUTH["🔐 /auth/<br/><b>Customer Onboarding</b><br/>JWT & Session Tokens"]
-        TXN["💳 /transactions/<br/><b>Payment Processing</b><br/>Gateways & Cards"]
+        AUTH["fa:fa-lock &nbsp;/auth/&nbsp;<br/><b>Customer Onboarding</b><br/>JWT & Session Tokens"]
+        TXN["fa:fa-credit-card &nbsp;/transactions/&nbsp;<br/><b>Payment Processing</b><br/>Gateways & Cards"]
         AUTH --> TXN
     end
 
     subgraph CORE["Ledger Invariants & Events"]
         direction LR
-        LEDGER["📒 /ledger/<br/><b>Double-Entry Ledger</b><br/>Balance Invariants"]
-        HOOKS["📨 /webhooks/<br/><b>Event Dispatch</b><br/>Merchant Webhooks"]
+        LEDGER["fa:fa-book &nbsp;/ledger/&nbsp;<br/><b>Double-Entry Ledger</b><br/>Balance Invariants"]
+        HOOKS["fa:fa-paper-plane &nbsp;/webhooks/&nbsp;<br/><b>Event Dispatch</b><br/>Merchant Webhooks"]
     end
 
     INTAKE ==> CORE
@@ -266,16 +266,16 @@ Before opening the codebase in Part 2, we establish five precise terms:
 
 ```mermaid
 flowchart TD
-    subgraph STABILIZERS["🛡️ Architectural Stabilizers"]
-        CO["🧲 Cohesion<br/><i>Elements change together for same business reason</i>"]
-        OW["👤 Ownership<br/><i>Clear squad accountability per directory</i>"]
+    subgraph STABILIZERS["Architectural Stabilizers"]
+        CO["fa:fa-magnet &nbsp;Cohesion&nbsp;<br/><i>Elements change together for same business reason</i>"]
+        OW["fa:fa-user-check &nbsp;Ownership&nbsp;<br/><i>Clear squad accountability per directory</i>"]
     end
 
-    MB["🧱 Module Boundary<br/><b>Explicit dividing line between subsystems</b>"]
+    MB["fa:fa-shield &nbsp;Module Boundary&nbsp;<br/><b>Explicit dividing line between subsystems</b>"]
 
-    subgraph FORCES["⚡ Operational Realities"]
-        BR["💥 Blast Radius<br/><i>Scope of damage when a component fails</i>"]
-        FF["⚡ Forcing Function<br/><i>External crisis forcing structural redesign</i>"]
+    subgraph FORCES["Operational Realities"]
+        BR["fa:fa-bomb &nbsp;Blast Radius&nbsp;<br/><i>Scope of damage when a component fails</i>"]
+        FF["fa:fa-bolt &nbsp;Forcing Function&nbsp;<br/><i>External crisis forcing structural redesign</i>"]
     end
 
     CO -->|"Strengthens"| MB

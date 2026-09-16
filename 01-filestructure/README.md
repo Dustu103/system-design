@@ -16,18 +16,18 @@ When teams communicate in silos, the codebase inevitably mirrors those silos. Th
 
 ```mermaid
 flowchart TD
-    subgraph ORG["👥 Organizational Communication Graph"]
+    subgraph ORG["Organizational Communication Graph"]
         direction TB
-        F["Frontend Squad<br/><i>(Sits on Floor 2)</i>"] <--> B["Backend Squad<br/><i>(Sits on Floor 3)</i>"]
-        B <--> D["DBA / Data Squad<br/><i>(Different Reporting Line)</i>"]
-        F -. "Rarely talks directly" .- D
+        F["fa:fa-users &nbsp;Frontend Squad&nbsp;<br/><i>(Floor 2)</i>"] <--> B["fa:fa-users &nbsp;Backend Squad&nbsp;<br/><i>(Floor 3)</i>"]
+        B <--> D["fa:fa-database &nbsp;DBA / Data Squad&nbsp;<br/><i>(Separate Dept)</i>"]
+        F -.-|"Rarely communicates directly"| D
     end
 
-    subgraph CODE["💻 Inevitable Codebase Architecture"]
+    subgraph CODE["Inevitable Codebase Architecture"]
         direction TB
-        UI["📁 /frontend/<br/><i>(Presentation Layer)</i>"] --> API["📁 /api/<br/><i>(Application Layer)</i>"]
-        API --> DB["📁 /database/<br/><i>(Persistence Layer)</i>"]
-        UI -. "Tight coupling & friction appear here" .- DB
+        UI["fa:fa-desktop &nbsp;/frontend/&nbsp;<br/><i>(Presentation Layer)</i>"] --> API["fa:fa-cogs &nbsp;/api/&nbsp;<br/><i>(Application Layer)</i>"]
+        API --> DB["fa:fa-database &nbsp;/database/&nbsp;<br/><i>(Persistence Layer)</i>"]
+        UI -.-|"Coupling friction emerges here"| DB
     end
 
     ORG ==>|"Conway's Law: Org Chart rotated 90°"| CODE
@@ -46,9 +46,9 @@ Senior architects don't try to solve structural chaos with code refactoring alon
 
 ```mermaid
 flowchart TD
-    A["🎯 1. Target Architecture<br/><b>Define desired decoupled boundaries</b>"] 
-    --> B["👥 2. Reshape Team Topology<br/><b>Small, autonomous two-pizza squads</b>"]
-    --> C["💻 3. Code Follows Design<br/><b>Directories mirror clear domain boundaries</b>"]
+    A["fa:fa-bullseye &nbsp;1. Target Architecture&nbsp;<br/><b>Define desired decoupled boundaries</b>"] 
+    --> B["fa:fa-users &nbsp;2. Reshape Team Topology&nbsp;<br/><b>Small, autonomous two-pizza squads</b>"]
+    --> C["fa:fa-code &nbsp;3. Code Follows Design&nbsp;<br/><b>Directories mirror clear domain boundaries</b>"]
 
     classDef step fill:#1e293b,stroke:#8b5cf6,stroke-width:2px,color:#f8fafc;
     class A,B,C step;
@@ -64,25 +64,25 @@ Structural debt does not stay inside folders—it leads to high-profile producti
 flowchart TD
     subgraph K["1. Knight Capital (2012) — Acute Dead Code Disaster"]
         direction TB
-        K1["🧟 Root Cause: Zombie 'Power Peg' code left dormant in repository for 9 years"]
-        K2["🚨 Trigger: 1 of 8 servers missed deployment; reused dormant config flag"]
-        K3["💸 Impact: $460 Million lost in 45 minutes; 4M unintended orders; firm collapsed"]
+        K1["fa:fa-ban &nbsp;Root Cause: Zombie 'Power Peg' code dormant for 9 years&nbsp;"]
+        K2["fa:fa-exclamation-triangle &nbsp;Trigger: 1 of 8 servers missed deployment; reused dormant flag&nbsp;"]
+        K3["fa:fa-dollar &nbsp;Impact: $460M lost in 45 minutes; 4M unintended orders; firm collapsed&nbsp;"]
         K1 --> K2 --> K3
     end
 
     subgraph G["2. GitLab (2017) — Ambiguous Environment Guardrails"]
         direction TB
-        G1["🧟 Root Cause: Identical directory paths across primary and backup replicas"]
-        G2["🚨 Trigger: Tired engineer ran wipe command in wrong terminal tab"]
-        G3["💸 Impact: 300 GB deleted; all 5 redundant backup systems failed in recovery"]
+        G1["fa:fa-ban &nbsp;Root Cause: Identical directory paths across primary & backup&nbsp;"]
+        G2["fa:fa-exclamation-triangle &nbsp;Trigger: Tired engineer ran wipe command in wrong terminal tab&nbsp;"]
+        G3["fa:fa-dollar &nbsp;Impact: 300 GB deleted; all 5 redundant backup systems failed live&nbsp;"]
         G1 --> G2 --> G3
     end
 
     subgraph S["3. Apple Siri (2011–2024) — The 13-Year Slow Compound"]
         direction TB
-        S1["🧟 Root Cause: 13 years of intent heuristics patched onto legacy rule engines"]
-        S2["🚨 Trigger: Fragile architectural debt blocked modern LLM integration"]
-        S3["💸 Impact: Core reliability dropped <80%; $1B/year paid to Google for Gemini"]
+        S1["fa:fa-ban &nbsp;Root Cause: 13 years of intent heuristics patched onto legacy rule engines&nbsp;"]
+        S2["fa:fa-exclamation-triangle &nbsp;Trigger: Fragile architectural debt blocked modern LLM integration&nbsp;"]
+        S3["fa:fa-dollar &nbsp;Impact: Core reliability fell <80%; $1B/year paid to Google for Gemini&nbsp;"]
         S1 --> S2 --> S3
     end
 
@@ -101,10 +101,10 @@ Teams don't refactor code because clean code is virtuous. They refactor when the
 ```mermaid
 sequenceDiagram
     autonumber
-    participant Event as ⚡ External Shock
-    participant System as 🏚️ Fragile Architecture
-    participant Action as 🔨 Forcing Function
-    participant Future as 🚀 Resilient Architecture
+    participant Event as External Shock
+    participant System as Fragile Architecture
+    participant Action as Forcing Function
+    participant Future as Resilient Architecture
 
     Note over Event,System: Case 1: Twitter (2010 FIFA World Cup)
     Event->>System: World Cup Goal (TPS Spike)
