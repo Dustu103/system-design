@@ -76,7 +76,7 @@ flowchart TD
 
 As one engineer described the inevitable surrender: *"The PR merged eventually. The file went into utils/ because everyone got tired."* Six months later, that directory contained sixty-one unrelated files, zero coherent organization, and a reputation as the graveyard where code goes to retire.
 
-Ward Cunningham [introduced the technical debt metaphor in 1992](https://www.youtube.com/watch?v=pqeJFYwnkjE): taking shortcuts is like borrowing money—you pay compounding interest until the principal is repaid. [CAST Software's analysis](https://www.castsoftware.com/research-labs/technical-debt-estimation) of 10B+ lines of code across 47,000 applications found **61 billion workdays of accumulated technical debt globally**. 
+Ward Cunningham [introduced the technical debt metaphor in 1992](https://www.youtube.com/watch?v=pqeJFYwnkjE) (later formalized by [Martin Fowler](https://martinfowler.com/bliki/TechnicalDebt.html)): taking shortcuts is like borrowing money—you pay compounding interest until the principal is repaid. Stripe's landmark global research study, [The Developer Coefficient](https://stripe.com/files/reports/the-developer-coefficient.pdf), found that engineers spend over 33% of their working hours wrestling with technical debt and bad code—costing the global economy an estimated **$300 billion in lost productivity annually**.
 
 Structural debt presents as five-minute debates happening fifty times a week, across a team of twelve engineers, sustained over three years.
 

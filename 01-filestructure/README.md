@@ -152,7 +152,7 @@ sequenceDiagram
 - **Apple Siri's 13-Year Structural Debt**: Craig Federighi's confirmation of the failed hybrid attempt and the subsequent $1B/year Gemini licensing deal.
 - **Twitter 2010 World Cup Fail Whale**: Eyewitness on-call account and Twitter Engineering's retrospective on migrating off the Monorail to Scala/JVM.
 - **Amazon 2002 Bezos Mandate**: How CEO-mandated interface boundaries eliminated coordination friction and accidentally gave birth to AWS.
-- **Global Technical Debt**: [CAST Software's analysis](https://www.castsoftware.com/research-labs/technical-debt-estimation) of 10B+ lines of code across 47,000 applications.
+- **Global Technical Debt**: Stripe's landmark global research study, [The Developer Coefficient](https://stripe.com/files/reports/the-developer-coefficient.pdf), detailing the $300B annual cost of technical debt and maintenance, paired with [Martin Fowler's Technical Debt](https://martinfowler.com/bliki/TechnicalDebt.html) architectural framework.
 
 ---
 
