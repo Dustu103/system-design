@@ -26,6 +26,30 @@ Every new engineer asks the same three fundamental questions within their first 
 
 All three are questions about structure. None of them are answered in a README.
 
+```mermaid
+flowchart LR
+    subgraph QUESTIONS["❓ The Three Questions Every New Hire Asks"]
+        direction TB
+        Q1["'Where does this type of thing live?'"]
+        Q2["'Who owns this module?'"]
+        Q3["'Why was this decision made?'"]
+    end
+
+    subgraph ANSWERS["🏛️ How Architecture Responds"]
+        direction TB
+        A1["✅ Self-Serve Codebase: Answered passively by directory boundaries"]
+        A2["❌ Structural Chaos: Answered in Slack 50 times/week at $90,000 ramp-up cost"]
+    end
+
+    QUESTIONS --> ANSWERS
+    classDef qClass fill:#1e293b,stroke:#64748b,stroke-width:2px,color:#f8fafc;
+    classDef goodClass fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
+    classDef badClass fill:#450a0a,stroke:#ef4444,stroke-width:2px,color:#f8fafc;
+    class Q1,Q2,Q3 qClass;
+    class A1 goodClass;
+    class A2 badClass;
+```
+
 > "The 'where do I put this file' question is not a junior engineer problem. It is a system design failure that the structure never answered."
 
 ---
@@ -42,7 +66,7 @@ Structure creates defaults. Defaults solidify into patterns. Patterns harden int
 
 When those defaults are coherent, the structure accelerates velocity. When they are ambiguous, the pattern creates immediate cognitive drag. The `utils/` folder represents the most universal manifestation of this breakdown. As one engineer described the inevitable surrender: *"The PR merged eventually. The file went into utils/ because everyone got tired."* Six months later, that directory contained sixty-one unrelated files, zero cohesive organization, and a quiet reputation across the engineering floor as the place where code goes to retire.
 
-Ward Cunningham [introduced the technical debt metaphor in 1992](https://www.youtube.com/watch?v=pqeJFYwnkjE) to explain to business stakeholders why rushing features creates long-term drag. Taking architectural shortcuts is like borrowing money: you pay compounding interest until the principal is repaid. Modern industry data shows that interest compounding at an unimaginable scale. [CAST Software's analysis](https://www.castsoftware.com/research-labs/technical-debt-estimation) of over ten billion lines of code across forty-seven thousand applications identified sixty-one billion workdays of accumulated technical debt globally. If every professional software developer on earth halted all feature development today and dedicated their working hours exclusively to remediation, it would require nine uninterrupted years to clear the backlog.
+Ward Cunningham [introduced the technical debt metaphor in 1992](https://www.youtube.com/watch?v=pqeJFYwnkjE) to explain to business stakeholders why rushing features creates long-term drag. Taking architectural shortcuts is like borrowing money: you pay compounding interest until the principal is repaid. Modern industry data shows that interest compounding at an unimaginable scale. [CAST Software's analysis](https://www.castsoftware.com/research-labs/technical-debt-estimation) of over ten billion lines of code across forty-seven thousand applications identified sixty-one billion workdays of accumulated technical debt globally. If every professional software engineer on earth halted all feature development today and dedicated their working hours exclusively to remediation, it would require nine uninterrupted years to clear the backlog.
 
 Structural debt does not arrive as a single invoice. It presents as five-minute discussions happening fifty times a week, across a team of twelve engineers, sustained over three years.
 
@@ -55,6 +79,30 @@ To understand why codebase structures drift into disarray, consider a concrete p
 Imagine an organization composed of three distinct groups: a dedicated frontend team, a dedicated backend team, and a dedicated database administration team. Each group sits separately, reports to a different manager, and meets on different cadences. Conway's Law dictates that this organization will build a three-tier architecture: a presentation layer, an API layer, and a database layer. They will not build this because an architect decided it was optimal for the business. They will build it because that is how the humans talk to each other.
 
 If you instead reorganize those same engineers into three cross-functional squads—a checkout squad, a payments squad, and an inventory squad—the resulting codebase will inevitably split into three domain-oriented services. The architecture of your software is the organizational chart, rotated ninety degrees.
+
+```mermaid
+flowchart TD
+    subgraph ORG["👥 Organizational Communication Graph"]
+        direction TB
+        F["Frontend Squad<br/><i>(Sits on Floor 2)</i>"] <--> B["Backend Squad<br/><i>(Sits on Floor 3)</i>"]
+        B <--> D["DBA / Data Squad<br/><i>(Separate Department)</i>"]
+        F -. "Rarely communicates directly" .- D
+    end
+
+    subgraph CODE["💻 Inevitable Codebase Architecture"]
+        direction TB
+        UI["📁 /frontend/<br/><i>(Presentation Layer)</i>"] --> API["📁 /api/<br/><i>(Application Layer)</i>"]
+        API --> DB["📁 /database/<br/><i>(Persistence Layer)</i>"]
+        UI -. "Coupling friction emerges here" .- DB
+    end
+
+    ORG ==>|"Conway's Law: Org Chart rotated 90°"| CODE
+
+    classDef orgClass fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#f8fafc;
+    classDef codeClass fill:#0f172a,stroke:#10b981,stroke-width:2px,color:#f8fafc;
+    class F,B,D orgClass;
+    class UI,API,DB codeClass;
+```
 
 In 1967, Melvin Conway submitted [a paper to the *Harvard Business Review*](http://www.melconway.com/Home/Committees_Paper.html) outlining this exact dynamic. The editors rejected it as unproven, but Fred Brooks subsequently cemented the insight in *The Mythical Man-Month*: any organization that designs a system will inevitably produce a design whose structure mirrors the organization's communication patterns. Decades later, [MIT and Harvard Business School researchers tested it empirically](https://www.hbs.edu/ris/Publication%20Files/08-039_1861e507-1dc1-4602-85b8-90d71559d85b.pdf), finding that loosely coupled organizations produce significantly more modular, decoupled codebases than tightly coupled ones.
 
@@ -70,6 +118,16 @@ Amazon's famous two-pizza team rule was never merely an HR policy about keeping 
 
 This is the Inverse Conway Maneuver, formalized by Matthew Skelton and Manuel Pais in [*Team Topologies*](https://teamtopologies.com/book). When faced with Conway's Law, junior engineers often feel resigned to organizational dysfunction. Senior engineers recognize the Inverse Conway Maneuver as an architectural lever: to fix your software's structure, you start by reshaping the team's communication boundaries.
 
+```mermaid
+flowchart LR
+    A["🎯 1. Target Architecture<br/><i>Define decoupled domain boundaries</i>"] 
+    --> B["👥 2. Reshape Team Topology<br/><i>Cross-functional two-pizza squads</i>"]
+    --> C["💻 3. Code Follows Boundaries<br/><i>Self-contained directories & clear APIs</i>"]
+
+    classDef step fill:#1e293b,stroke:#8b5cf6,stroke-width:2px,color:#f8fafc;
+    class A,B,C step;
+```
+
 ---
 
 ## Every Folder Has a Story. Most Teams Have Forgotten It.
@@ -81,6 +139,33 @@ Consider what happens inside an enterprise monorepo when a team creates a top-le
 Then look at the `docs/` folder present in almost every repository older than eighteen months. Inside, you find an initial onboarding guide from sprint one, a burst of markdown files written during an all-hands documentation push, and an architecture decision records directory containing three ADRs from 2021. Nobody updates it, yet nobody deletes it. It lingers because it once served a purpose, the purpose dissolved, and the codebase provides no clear signal indicating that the content has rotted.
 
 When ambiguous structure meets production pressure, the outcome shifts from inconvenience to catastrophe.
+
+```mermaid
+flowchart TD
+    subgraph K["1. Knight Capital (2012) — Acute Dead Code Catastrophe"]
+        K1["Zombie 'Power Peg' code left dormant for 9 years"]
+        K2["1 of 8 servers missed deploy; reused config flag"]
+        K3["💥 $460 Million lost in 45 minutes; firm collapsed"]
+        K1 --> K2 --> K3
+    end
+
+    subgraph G["2. GitLab (2017) — Ambiguous Environment Guardrails"]
+        G1["Fatigued engineer working across multiple open terminal tabs"]
+        G2["No visual signal in directory names; ran wipe on Primary"]
+        G3["💥 300 GB deleted; all 5 backup replication systems failed"]
+        G1 --> G2 --> G3
+    end
+
+    subgraph S["3. Apple Siri (2011–2024) — The 13-Year Slow Compound"]
+        S1["13 years of intent-classification heuristics patched over rules"]
+        S2["Core feature reliability dropped to 66–80%; hybrid failed"]
+        S3["💥 $1B/year paid to Google for Gemini; leadership removed"]
+        S1 --> S2 --> S3
+    end
+
+    classDef disaster fill:#1e1e2e,stroke:#ef4444,stroke-width:2px,color:#f8fafc;
+    class K1,K2,K3,G1,G2,G3,S1,S2,S3 disaster;
+```
 
 On August 1, 2012, Knight Capital Group prepared to participate in the New York Stock Exchange's new Retail Liquidity Program. Engineers updated their automated routing engine, SMARS, and repurposed an existing internal configuration flag that had historically activated an obsolete testing function known as Power Peg. Power Peg had been officially deprecated in 2003, but its underlying code was never excised from the repository. When the update was deployed across eight production servers, an engineer missed a manual deployment step on the eighth machine. That server continued running the previous year's binary. When trading opened, the repurposed flag instructed that server to run Power Peg. Within forty-five minutes, the system executed four million unintended transactions across 154 equities, accumulating over seven billion dollars in erroneous positions and costing Knight Capital $460 million. The company collapsed and was acquired. The [SEC's administrative proceeding](https://www.sec.gov/litigation/admin/2013/34-70694.pdf) documented the mechanism: dead code left lingering in an ambiguous directory, repurposed configuration flags, and a directory layout that failed to signal what was active versus obsolete.
 
@@ -105,6 +190,26 @@ An eyewitness engineer on call during the tournament documented the reality on h
 Twitter's official engineering blog subsequently corroborated what the architecture was subjected to: *"The influx of Tweets — from every shot on goal, penalty kick and yellow or red card — repeatedly took its toll and made Twitter unavailable for short periods of time. Engineering worked throughout the nights during this time, desperately trying to find and implement order-of-magnitudes of efficiency gains. After that experience, we determined we needed to step back. We then determined we needed to re-architect the site."*
 
 A series of goals scored inside stadiums in Johannesburg and Cape Town triggered a three-year architectural transformation in San Francisco. Twitter abandoned the Monorail, migrated core services to the JVM and Scala, and built the distributed primitives—such as Finagle and Zipkin—that eventually reshaped the entire cloud ecosystem. Every goal in South Africa became a forcing function that turned architectural debt into global public embarrassment.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Event as ⚡ External Shock
+    participant System as 🏚️ Fragile Architecture
+    participant Action as 🔨 Forcing Function
+    participant Future as 🚀 Resilient Architecture
+
+    Note over Event,System: Case 1: Twitter (2010 FIFA World Cup)
+    Event->>System: Goal scored in South Africa (TPS spike)
+    System-->>Event: Fail Whale appears across the internet
+    System->>Action: Public embarrassment → 3-year migration off Monorail
+    Action->>Future: Scala, JVM, SOA, Finagle & Zipkin
+
+    Note over Event,System: Case 2: Amazon (2002 Bezos API Memo)
+    Event->>System: Coordination meetings paralyze delivery speed
+    System->>Action: CEO Mandate: "Expose service interfaces or you're fired"
+    Action->>Future: Hardened internal service platform becomes AWS
+```
 
 Yet the most consequential forcing function in modern software history was not triggered by an infrastructure crash. It was triggered by an executive memo.
 
@@ -143,6 +248,23 @@ This series will not provide you with a universal folder blueprint that you can 
 ## A Vocabulary, Before We Go Further
 
 Before we examine the concrete codebase in the next article, we must establish five precise architectural terms that will anchor our analysis.
+
+```mermaid
+flowchart TD
+    MB["🧱 Module Boundary<br/><i>Explicit vs. implicit dividing lines</i>"]
+    BR["💥 Blast Radius<br/><i>Perimeter of damage when changes break</i>"]
+    CO["🧲 Cohesion<br/><i>Do elements change for the same reasons?</i>"]
+    OW["👤 Ownership<br/><i>Clear squad accountability per directory</i>"]
+    FF["⚡ Forcing Function<br/><i>External crisis forcing structural refactoring</i>"]
+
+    MB -->|"Constrains"| BR
+    CO -->|"Strengthens"| MB
+    OW -->|"Defends"| MB
+    FF -->|"Shatters brittle"| MB
+
+    classDef core fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#f8fafc;
+    class MB,BR,CO,OW,FF core;
+```
 
 Blast radius defines the total scope of destruction when a specific component fails or is modified incorrectly. A utility function designed with a tiny blast radius can be refactored or deleted in isolation with complete confidence. A function with an expansive blast radius—such as an unversioned helper living inside a shared folder and imported by forty downstream services—carries the potential to cause a cascading outage across the entire system. Blast radius is fundamentally an attribute of your system's structure, not the cleverness of the code inside the function.
 
