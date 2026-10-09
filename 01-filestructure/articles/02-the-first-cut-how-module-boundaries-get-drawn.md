@@ -94,29 +94,8 @@ import { verifyCustomerKYC } from '../auth/service';
 
 The pull request passed code review because the reviewer was rushing to cut the sprint release. It passed continuous integration because the TypeScript compiler resolved the path without issue. With a single keystroke, the architectural boundary was punctured. Six months later, `/auth/` imported `/transactions/`, `/transactions/` imported `/ledger/`, `/ledger/` imported `/webhooks/`, and `/webhooks/` imported `/auth/`. On disk, the repository appeared neatly partitioned into four domain folders. In memory, the application had collapsed into a tangled, circular distributed hairball.
 
-```mermaid
-flowchart TD
-    subgraph CLEAN["Week 1: Intended Architectural Decoupling"]
-        direction LR
-        A1["/auth/"] --> T1["/transactions/"] --> L1["/ledger/"]
-        T1 -.-> W1["/webhooks/"]
-    end
-
-    subgraph DRIFT["Month 6: The Inevitable Tangled Hairball"]
-        direction LR
-        A2["/auth/"] <==> T2["/transactions/"]
-        T2 <==> L2["/ledger/"]
-        L2 <==> W2["/webhooks/"]
-        W2 <==>|"Thursday 4:30 PM PR"| A2
-    end
-
-    CLEAN ==>|"Deadline Pressure + Implicit Rules"| DRIFT
-
-    classDef cleanClass fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
-    classDef driftClass fill:#450a0a,stroke:#ef4444,stroke-width:2px,color:#f8fafc;
-    class A1,T1,L1,W1 cleanClass;
-    class A2,T2,L2,W2 driftClass;
-```
+![Diagram 10: Module Boundary Drift](https://raw.githubusercontent.com/Dustu103/system-design/main/01-filestructure/assets/10-module-boundary-drift.jpg)
+*Diagram 10: Week 1 Intended Decoupling vs. Month 6 Tangled Hairball*
 
 This represents the central operational dilemma of software architecture: drawing boundaries on a whiteboard is trivial, but keeping them from eroding under sprint pressure is where engineering actually occurs.
 
@@ -145,8 +124,8 @@ fintech-engine/
         └── db.ts                 # Shared global connection pool exposing raw SQL execution
 ```
 
-![Diagram 8: The Fintech Engine State](https://raw.githubusercontent.com/Dustu103/system-design/main/01-filestructure/assets/08-fintech-monolith.png)
-*Diagram 8: Entangled Dependencies and Shared Database Pool in the Fintech Engine*
+![Diagram 11: The Entangled Fintech Engine State](https://raw.githubusercontent.com/Dustu103/system-design/main/01-filestructure/assets/11-entangled-fintech-engine.jpg)
+*Diagram 11: Entangled Dependencies and Shared Database Pool in the Fintech Engine*
 
 This system must protect an inviolable architectural invariant: **the double-entry balance invariant**. Across all ledger accounts, the sum of all debits must strictly equal the sum of all credits at all times. No external service—whether an authentication handler, an external payment gateway adaptor, or a webhook dispatcher—may ever directly write to, bypass, or mutate ledger balance records.
 
@@ -162,31 +141,8 @@ In our entangled fintech engine, when a payment arrives, `processor.ts` opens a 
 
 Architectural reviews frequently devolve into subjective debates where senior engineers argue personal preferences regarding clean code. To eliminate subjectivity, architects rely on the [package coupling metrics](https://en.wikipedia.org/wiki/Software_package_metrics) formalized by [Robert C. Martin](https://en.wikipedia.org/wiki/Software_package_metrics).
 
-```mermaid
-flowchart TD
-    subgraph IN["Afferent Coupling (Ca): Incoming Dependencies"]
-        direction TB
-        C1["auth/"] --> L["<b>ledger/core</b>"]
-        C2["transactions/"] --> L
-        C3["reporting/"] --> L
-        Note1["Ca = 3 (Highly Responsible)"]
-    end
-
-    subgraph OUT["Efferent Coupling (Ce): Outgoing Dependencies"]
-        direction TB
-        W["<b>webhooks/dispatcher</b>"] --> O1["httpClient"]
-        W --> O2["retryQueue"]
-        W --> O3["authService"]
-        Note2["Ce = 3 (Highly Dependent)"]
-    end
-
-    IN --- OUT
-
-    classDef core fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
-    classDef volatile fill:#1e293b,stroke:#8b5cf6,stroke-width:2px,color:#f8fafc;
-    class L core;
-    class W volatile;
-```
+![Diagram 12: Afferent vs. Efferent Coupling Metrics](https://raw.githubusercontent.com/Dustu103/system-design/main/01-filestructure/assets/12-coupling-metrics-ca-ce.jpg)
+*Diagram 12: Afferent Coupling (Ca) vs. Efferent Coupling (Ce) in the Fintech Engine*
 
 [Afferent coupling](https://en.wikipedia.org/wiki/Software_package_metrics), denoted as $C_a$, measures the number of classes or modules outside a package that depend upon classes inside it. A high $C_a$ indicates high responsibility: many parts of the application rely on this module, meaning any breaking changes to its public interface will reverberate across the system. [Efferent coupling](https://en.wikipedia.org/wiki/Software_package_metrics), denoted as $C_e$, measures the number of classes outside a package that classes inside this package depend upon. A high $C_e$ indicates high dependency: the module relies on numerous external abstractions and is vulnerable to breaking whenever its dependencies change.
 
@@ -200,8 +156,8 @@ Applying this formula to our fintech engine reveals exactly where boundaries mus
 
 This leads directly to the **Stable Dependencies Principle (SDP)**: depend in the direction of stability. A module should only depend on modules that are more stable than itself. If a stable module like `ledger` with $I = 0.1$ imports an unstable module like `webhooks` with $I = 0.9$, the instability of the webhook package infects the ledger, destroying its stability and introducing unpredictable regression cascades.
 
-![Diagram 9: Architecture Health Map](https://raw.githubusercontent.com/Dustu103/system-design/main/01-filestructure/assets/09-architecture-health-map.png)
-*Diagram 9: The Instability vs. Abstractness Health Map and the Main Sequence*
+![Diagram 13: Robert C. Martin's Package Metrics and The Main Sequence](https://raw.githubusercontent.com/Dustu103/system-design/main/01-filestructure/assets/13-main-sequence-health-map.jpg)
+*Diagram 13: Robert C. Martin's Instability vs. Abstractness Health Map and The Main Sequence*
 
 When a module is maximally stable ($I = 0$), it must also be abstract; otherwise, it becomes rigid and unmaintainable. Conversely, modules that are highly concrete should remain unstable ($I = 1$), allowing them to be modified rapidly without breaking external consumers. Calculating the distance from the Main Sequence, defined as $D = |A + I - 1|$ where $A$ represents abstractness, provides an objective mathematical index of architectural health that eliminates opinion from pull request reviews.
 
@@ -221,20 +177,8 @@ By turning module boundaries into automated build gates, Shopify significantly r
 
 Modern ecosystems provide distinct mechanisms to make boundaries irreversible:
 
-```mermaid
-flowchart TD
-    subgraph MECH["Boundary Enforcement Hierarchy"]
-        direction TB
-        E1["<b>1. Compiler-Enforced</b><br/>Go <i>internal/</i> &nbsp;•&nbsp; Rust <i>pub(crate)</i><br/>Build fails mechanically at compile time"]
-        E2["<b>2. Runtime / Resolution Enforced</b><br/>Node.js <i>package.json 'exports'</i> &nbsp;•&nbsp; TS Subpath Imports<br/>Module loader refuses to resolve private paths"]
-        E3["<b>3. Automated Architectural Tests</b><br/>Java/Kotlin <i>ArchUnit</i> &nbsp;•&nbsp; Ruby <i>Packwerk</i><br/>CI unit tests assert dependency rules as code"]
-        E4["<b>4. Static Analysis Linters</b><br/>ESLint <i>eslint-plugin-boundaries</i><br/>Flags boundary violations during local editor linting"]
-        E1 --> E2 --> E3 --> E4
-    end
-
-    classDef tier fill:#1e293b,stroke:#8b5cf6,stroke-width:2px,color:#f8fafc;
-    class E1,E2,E3,E4 tier;
-```
+![Diagram 14: The Boundary Enforcement Hierarchy](https://raw.githubusercontent.com/Dustu103/system-design/main/01-filestructure/assets/14-boundary-enforcement-hierarchy.jpg)
+*Diagram 14: The Mechanical Boundary Enforcement Hierarchy — From Compiler Gates to Linters*
 
 In the Go toolchain, `internal/` packages enforce privacy directly through the compiler, terminating builds if external packages attempt unauthorized imports. In [Rust](https://doc.rust-lang.org/reference/visibility-and-privacy.html), [`pub(crate)`](https://doc.rust-lang.org/reference/visibility-and-privacy.html) and hierarchical module scoping provide compiler-level guarantees that private domain logic cannot be accessed beyond designated crate or module boundaries.
 
