@@ -1,22 +1,39 @@
-# 📱 LinkedIn Distribution Post: Article 2 (Punchy & Short)
+# 📱 LinkedIn Distribution Post: Article 2 (Suspense Story Hook)
 
-> **Optimized for LinkedIn mobile feed:** Under 150 words, fast 25-second read, high retention, zero outbound link penalty.
+> **Cinematic Engineering Suspense Hook:** High-stakes on-call incident → invisible shortcut root cause → 24-day research resolution. Zero outbound links in post body.
 
 ---
 
 ## 📝 PART 1: The Main Post (Paste into LinkedIn Post Editor)
-*Attach Diagram 10 (`01-filestructure/assets/10-module-boundary-drift.jpg`)*
+*Attach Diagram 10 (`01-filestructure/assets/10-module-boundary-drift.jpg`) or Diagram 11 (`01-filestructure/assets/11-entangled-fintech-engine.jpg`)*
 
 ```text
-Part 1 went live on September 16.
-It took 24 days of deep research to write Part 2.
+At 2:14 AM, the on-call pager went off.
 
-Here is why:
+A customer's credit card was charged $4,200.
+The money left their bank account.
+Stripe confirmed the charge.
 
-At 4:30 PM on a Thursday, an engineer typed one line:
+Yet inside our core ledger, the account balance read: $0.
+
+No record. No transaction. Just vanished money.
+
+The database hadn't crashed.
+The server hadn't run out of memory.
+
+What happened was far worse:
+A merchant's third-party webhook endpoint had timed out.
+
+And because of a single shortcut taken months earlier, that external timeout triggered a database rollback that wiped out the atomic ledger entry — after the customer was already billed.
+
+How did an external webhook get the power to destroy a core financial ledger?
+
+It started on a Thursday at 4:30 PM.
+A senior engineer under deadline pressure added one quick line:
 import { verifyCustomerKYC } from '../auth/service';
 
-The PR merged. CI passed.
+The PR passed. CI was green.
+Nobody noticed the trap being set.
 
 Six months later:
 • /auth/ imported /transactions/
@@ -24,19 +41,20 @@ Six months later:
 • /ledger/ imported /webhooks/
 • /webhooks/ imported /auth/
 
-On disk: 4 neat domain folders.
-In memory: a circular, tangled hairball.
+On disk: 4 neat folders.
+In memory: a circular, lethal knot.
 
-Drawing boundaries on a whiteboard is easy.
-Preventing them from rotting under sprint panic is where real engineering happens.
+Part 1 came out on September 16.
+It took 24 days of deep research to write Part 2 because we didn't want another theoretical "clean code" post. 
 
-After analyzing 153M lines of code (GitClear AI study), IEEE developer navigation data, and monolith retrospectives from Shopify and Stripe, Part 2 is live:
+We wanted to answer the brutal question every team eventually faces:
+How do you mathematically prevent module boundaries from rotting into production catastrophes?
 
-How to draw module boundaries that don't drift — backed by package coupling mathematics (Ca, Ce, Instability) and mechanical CI gates.
+The full breakdown — with the coupling math (Ca, Ce, Instability) and the mechanical CI gates used by Stripe and Shopify — is live on Medium today.
 
-🔗 Full 15-minute essay linked in the first comment below! 👇
+🔗 Direct link to the essay is in the first comment below! 👇
 
-#SoftwareEngineering #SystemDesign #SoftwareArchitecture #CleanCode #Programming #TechLead
+#SoftwareEngineering #SystemDesign #SoftwareArchitecture #Programming #TechLead #DevOps #CleanCode
 ```
 
 ---
