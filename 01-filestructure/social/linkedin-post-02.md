@@ -1,16 +1,11 @@
-# 📱 LinkedIn Distribution Posts: Article 2
+# 📱 LinkedIn Distribution Post: Article 2 (Algorithm-Optimized)
 
-**Live Medium Link:**
-```text
-https://medium.com/@arnabpramanik102018/the-first-cut-how-module-boundaries-get-drawn-and-why-they-drift-d13f3a640615
-```
+> **LinkedIn Algorithm Rule:** Never include external links in the main post body. LinkedIn's feed algorithm penalizes external URLs by 40%–60% to keep users on-site. Place the link in the **first comment** and pin/reference it.
 
 ---
 
-## 🔥 The 24-Day Deep Research Master Post (Highest Viral Potential)
-
-*Context: Part 1 published Sep 16 → Part 2 published Oct 10 (24 days of obsessive research).*
-*Attach Diagram 10 or Diagram 12.*
+## 📝 PART 1: The Main Post (Paste into LinkedIn Post Editor)
+*Attach Diagram 10 (`01-filestructure/assets/10-module-boundary-drift.jpg`)*
 
 ```text
 Part 1 went live on September 16.
@@ -66,11 +61,7 @@ Stop arguing clean code opinions in PR reviews. Calculate:
 4️⃣ Wikis don't protect boundaries. Compilers and CI gates do.
 Conventions always collapse under deadline panic. Sustainable architecture requires mechanical gates: Go internal/ packages, Rust pub(crate), Node exports maps, ArchUnit bytecode assertions in CI, and Shopify’s Packwerk AST analyzers.
 
-The full 15-minute deep dive (~3,500 words, 5 custom architectural diagrams, and zero filler) is live on Medium today:
-
-👉 https://medium.com/@arnabpramanik102018/the-first-cut-how-module-boundaries-get-drawn-and-why-they-drift-d13f3a640615
-
-(Part 1 had incredible feedback — thank you to everyone who read, debated, and shared it. Part 2 is the deepest thing I've written.)
+🔗 The full 15-minute deep dive (~3,500 words, 5 custom architectural diagrams, and zero filler) is linked in the first comment below! 👇
 
 What tooling does your team use to hold the line against boundary drift before code merges?
 
@@ -79,5 +70,18 @@ What tooling does your team use to hold the line against boundary drift before c
 
 ---
 
-## 🖼️ Suggested Image to Attach:
-Attach **Diagram 10** (`01-filestructure/assets/10-module-boundary-drift.jpg`) — the visual side-by-side contrast of "Week 1 Intended Decoupling vs. Month 6 Tangled Hairball" immediately stops the scroll.
+## 💬 PART 2: The First Comment (Post Immediately Under Your Own Post)
+
+```text
+Here is the direct link to the full essay on Medium: 👇
+
+https://medium.com/@arnabpramanik102018/the-first-cut-how-module-boundaries-get-drawn-and-why-they-drift-d13f3a640615
+
+Inside the article:
+• The complete folder tree of our fintech engine
+• Step-by-step coupling math (Ca, Ce, Instability, Distance from Main Sequence)
+• ArchUnit Java bytecode assertion code sample
+• Shopify Packwerk production trade-offs and retrospective
+
+(If you missed Part 1 on folder structure fundamentals, you can catch up here: https://medium.com/@arnabpramanik102018/your-folder-structure-is-a-message-most-teams-are-sending-the-wrong-one-986cce6d7e75)
+```
