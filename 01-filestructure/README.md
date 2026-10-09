@@ -137,7 +137,7 @@ sequenceDiagram
 | Part | Title | Status | Target Length | Markdown Article |
 | :---: | :--- | :---: | :---: | :---: |
 | **01** | **Your Folder Structure Is a Message. Most Teams Are Sending the Wrong One.** | ✅ Published | 1,733 words (~8 min) | [Read Part 1](articles/01-your-folder-structure-is-a-message.md) |
-| **02** | **The First Cut: How Module Boundaries Get Drawn and Why They Drift** | ✍️ Ready | ~2,100 words (~9 min) | [Read Part 2](articles/02-the-first-cut-how-module-boundaries-get-drawn.md) |
+| **02** | **The First Cut: How Module Boundaries Get Drawn and Why They Drift** | ✅ Published | ~3,500 words (~15 min) | [Read Part 2](articles/02-the-first-cut-how-module-boundaries-get-drawn.md) • [Medium](https://medium.com/@arnabpramanik102018/the-first-cut-how-module-boundaries-get-drawn-and-why-they-drift-d13f3a640615) |
 | **03** | **The Universal Root: Every Folder Explained** | ⏳ Planned | ~1,600 words (~7 min) | Coming soon |
 | **04** | **How Structure Evolves: The Same Repo at 5, 20, and 50 Engineers** | ⏳ Planned | ~1,800 words (~8 min) | Coming soon |
 | **05** | **The Blast Radius Audit: Diagnosing Coupling Before It Causes an Outage** | ⏳ Planned | ~2,000 words (~9 min) | Coming soon |
