@@ -75,7 +75,7 @@ Mediumblogs/
 
 | Topic # | Topic / Series Name | Description | Status | Direct Link |
 | :---: | :--- | :--- | :---: | :---: |
-| **01** | **File Structure & Codebase Architecture** | Conway's Law, directory decay, forcing functions, and defining module boundaries before external shocks break your system. | ✅ Active (Part 1 Ready) | [Explore Topic 01](01-filestructure/) |
+| **01** | **File Structure & Codebase Architecture** | Conway's Law, directory decay, forcing functions, and defining module boundaries before external shocks break your system. | ✅ Active (Parts 1–2 Ready) | [Explore Topic 01](01-filestructure/) |
 | **02** | **Distributed Caching & Cache Invalidation** | Cache-aside, write-through, stampede mitigation, consistent hashing, and distributed cache coherence under high QPS. | ⏳ Planned | *Coming soon* |
 | **03** | **Database Partitioning & High Availability** | Horizontal sharding, read replicas, replication lag, distributed transactions, and split-brain resolution. | ⏳ Planned | *Coming soon* |
 | **04** | **Event-Driven Architecture & Messaging** | Message brokers, idempotency, outbox pattern, dead-letter queues, and exactly-once processing semantics. | ⏳ Planned | *Coming soon* |
@@ -86,6 +86,7 @@ Mediumblogs/
 ## 🚀 Quick Navigation for Topic 01 (File Structure)
 
 - **Read Part 1 on GitHub**: [01-your-folder-structure-is-a-message.md](01-filestructure/articles/01-your-folder-structure-is-a-message.md)
+- **Read Part 2 on GitHub**: [02-the-first-cut-how-module-boundaries-get-drawn.md](01-filestructure/articles/02-the-first-cut-how-module-boundaries-get-drawn.md)
 - **Topic 01 Overview & Diagrams**: [01-filestructure/README.md](01-filestructure/README.md)
 
 ---

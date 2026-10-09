@@ -8,13 +8,14 @@ Each article is written as a deep-dive essay for engineers at every stage of the
 
 ## 📚 Published & Upcoming Articles
 
-| Part | Title | Status | Reading Time | Markdown Source |
+| Part | Title | Status | Target Length | Markdown Source |
 | :---: | :--- | :---: | :---: | :---: |
-| **01** | **Your Folder Structure Is a Message. Most Teams Are Sending the Wrong One.** | ✅ Ready | ~12 min | [Read Article](01-your-folder-structure-is-a-message.md) |
-| **02** | **The First Cut: How Module Boundaries Get Drawn and Why They Drift** | ⏳ Planned | ~12 min | Coming soon |
-| **03** | **The Blast Radius Audit: Diagnosing Coupling Before It Causes an Outage** | ⏳ Planned | ~12 min | Coming soon |
-| **04** | **Decisions That Age Well: Writing ADRs Your Team Will Actually Follow** | ⏳ Planned | ~12 min | Coming soon |
-| **05** | **Architecture Without Authority: Leading Structural Alignment as a Senior Engineer** | ⏳ Planned | ~12 min | Coming soon |
+| **01** | **Your Folder Structure Is a Message. Most Teams Are Sending the Wrong One.** | ✅ Published | 1,733 words (~8 min) | [Read Article](01-your-folder-structure-is-a-message.md) |
+| **02** | **The First Cut: How Module Boundaries Get Drawn and Why They Drift** | ✍️ Ready | ~2,100 words (~9 min) | [Read Article](02-the-first-cut-how-module-boundaries-get-drawn.md) |
+| **03** | **The Universal Root: Every Folder Explained** | ⏳ Planned | ~1,600 words (~7 min) | Coming soon |
+| **04** | **How Structure Evolves: The Same Repo at 5, 20, and 50 Engineers** | ⏳ Planned | ~1,800 words (~8 min) | Coming soon |
+| **05** | **The Blast Radius Audit: Diagnosing Coupling Before It Causes an Outage** | ⏳ Planned | ~2,000 words (~9 min) | Coming soon |
+| **06** | **Modular Monolith to Microservices: The Distributed Inflection Point** | ⏳ Planned | ~2,000 words (~9 min) | Coming soon |
 
 ---
 

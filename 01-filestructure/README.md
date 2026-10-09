@@ -134,13 +134,14 @@ sequenceDiagram
 
 ## 📚 Articles Roadmap
 
-| Part | Title | Status | Reading Time | Markdown Article |
+| Part | Title | Status | Target Length | Markdown Article |
 | :---: | :--- | :---: | :---: | :---: |
-| **01** | **Your Folder Structure Is a Message. Most Teams Are Sending the Wrong One.** | ✅ Ready | ~12 min | [Read Part 1](articles/01-your-folder-structure-is-a-message.md) |
-| **02** | **The First Cut: How Module Boundaries Get Drawn and Why They Drift** | ⏳ Planned | ~12 min | Coming soon |
-| **03** | **The Blast Radius Audit: Diagnosing Coupling Before It Causes an Outage** | ⏳ Planned | ~12 min | Coming soon |
-| **04** | **Decisions That Age Well: Writing ADRs Your Team Will Actually Follow** | ⏳ Planned | ~12 min | Coming soon |
-| **05** | **Architecture Without Authority: Leading Structural Alignment as a Senior Engineer** | ⏳ Planned | ~12 min | Coming soon |
+| **01** | **Your Folder Structure Is a Message. Most Teams Are Sending the Wrong One.** | ✅ Published | 1,733 words (~8 min) | [Read Part 1](articles/01-your-folder-structure-is-a-message.md) |
+| **02** | **The First Cut: How Module Boundaries Get Drawn and Why They Drift** | ✍️ Ready | ~2,100 words (~9 min) | [Read Part 2](articles/02-the-first-cut-how-module-boundaries-get-drawn.md) |
+| **03** | **The Universal Root: Every Folder Explained** | ⏳ Planned | ~1,600 words (~7 min) | Coming soon |
+| **04** | **How Structure Evolves: The Same Repo at 5, 20, and 50 Engineers** | ⏳ Planned | ~1,800 words (~8 min) | Coming soon |
+| **05** | **The Blast Radius Audit: Diagnosing Coupling Before It Causes an Outage** | ⏳ Planned | ~2,000 words (~9 min) | Coming soon |
+| **06** | **Modular Monolith to Microservices: The Distributed Inflection Point** | ⏳ Planned | ~2,000 words (~9 min) | Coming soon |
 
 ---
 
@@ -153,6 +154,20 @@ sequenceDiagram
 - **Twitter 2010 World Cup Fail Whale**: Eyewitness on-call account and Twitter Engineering's retrospective on migrating off the Monorail to Scala/JVM.
 - **Amazon 2002 Bezos Mandate**: How CEO-mandated interface boundaries eliminated coordination friction and accidentally gave birth to AWS.
 - **Global Technical Debt**: Stripe's landmark global research study, [The Developer Coefficient](https://stripe.com/files/reports/the-developer-coefficient.pdf), detailing the $300B annual cost of technical debt and maintenance, paired with [Martin Fowler's Technical Debt](https://martinfowler.com/bliki/TechnicalDebt.html) architectural framework.
+
+---
+
+## 🔬 Core Case Studies & Empirical Data in Part 2
+
+- **The 70% Navigation Tax**: IEEE empirical investigation ([Minelli, Mocci, and Lanza, SANER 2015](https://doi.org/10.1109/SANER.2015.7081849)) demonstrating developers spend 70% of time reading and navigating code versus 5% writing code, paired with Robert C. Martin's 10:1 reading ratio.
+- **The AI Code Quality Crisis**: GitClear's 2024 empirical study ([Coding on Copilot](https://www.gitclear.com/coding_on_copilot_data_shows_downward_pressure_on_code_quality)) analyzing **153 million lines of code**, revealing code churn doubling, copy-paste proliferation, and refactoring collapse.
+- **The Expand-Contract Migration Pattern & Postgres Lock Queues**: Four-deployment parallel change pattern ([Pramod Sadalage and Martin Fowler](https://martinfowler.com/books/refactoringDatabases.html)) ensuring zero-downtime rolling deploys, paired with PostgreSQL `ACCESS EXCLUSIVE` lock arrival queue connection exhaustion mitigation (`SET lock_timeout = '2s'`).
+- **Migration Checksum Immutability**: [Flyway Checksum Calculator](https://documentation.redgate.com/fd/checksum-calculator-184127411.html) and Liquibase cryptographic verification preventing split-brain staging/production state.
+- **Stripe Immutable Ledger Architecture**: Recording money movement exclusively as append-only event streams of balanced debits and credits rather than destructive balance row mutations.
+- **Architectural Fitness Functions**: Continuous automated structural assertions ([Neal Ford, Rebecca Parsons, and Patrick Kua](https://evolutionaryarchitecture.com/)) in CI via ArchUnit, Shopify Packwerk, and ESLint boundary rules.
+- **Regulatory Segregation of Duties (SoD)**: [Sarbanes-Oxley Act (SOX) Section 404 ITGC](https://www.sec.gov/rules/final/33-8238.htm) and SOC 2 Type II CC6.1 compliance enforced via `CODEOWNERS` and branch protection rules.
+- **Language-Enforced Encapsulation**: Russ Cox's compiler-enforced package boundary specification ([Go 1.4 Internal Packages](https://go.dev/doc/go1.4#internalpackages)).
+- **Monorepo Scale & Modern Task Runners**: Uber's 50M LOC Go monorepo migration and Casey Rodarmor's [`just`](https://github.com/casey/just) task runner replacing Makefiles.
 
 ---
 
